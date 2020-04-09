@@ -29,7 +29,7 @@ class SignIn extends Component {
 
   render() {
     return (
-      <div className="sing-in">
+      <div className="sign-in">
         <h2>I already have an account</h2>
         <span>Sign in with your email and password</span>
 
@@ -52,10 +52,12 @@ class SignIn extends Component {
             required
           />
 
-          <CustomButton type="submit">Sign in</CustomButton>
-          <CustomButton onClick={signInWithGoogle}>
-            Sign in with Google
-          </CustomButton>
+          <div className="buttons">
+            <CustomButton type="submit">Sign in</CustomButton>
+            <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+              Sign in with Google
+            </CustomButton>
+          </div>
         </form>
       </div>
     )

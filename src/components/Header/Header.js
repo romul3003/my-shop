@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { ReactComponent as Logo } from '../../assets/icons/crown.svg'
 import { auth } from '../../firebase/firebase.utils'
 import './Header.scss'
+import CartIcon from '../CartIcon/CartIcon'
 
 const Header = ({ currentUser }) => {
   return (
@@ -27,6 +28,7 @@ const Header = ({ currentUser }) => {
             Sign in
           </Link>
         )}
+        <CartIcon />
       </div>
     </div>
   )

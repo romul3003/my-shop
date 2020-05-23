@@ -5,9 +5,7 @@ import Directory from '../../components/Directory/Directory'
 const HomePage = () => {
   return (
     <div className="homepage">
-      <div className="directory-menu">
-        <Directory />
-      </div>
+      <Directory />
     </div>
   )
 }

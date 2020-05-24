@@ -5,8 +5,6 @@ import CollectionsOverview from '../../components/CollectionsOverview/Collection
 import CollectionPage from '../Collection/Collection'
 
 const ShopPage = ({ match }) => {
-  // eslint-disable-next-line
-  console.log('--match', match)
   return (
     <div className="collection-page">
       <Route exact path={`${match.path}`} component={CollectionsOverview} />

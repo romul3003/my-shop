@@ -8,7 +8,7 @@ const ShopPage = ({ match }) => {
   // eslint-disable-next-line
   console.log('--match', match)
   return (
-    <div className="shop-page">
+    <div className="collection-page">
       <Route exact path={`${match.path}`} component={CollectionsOverview} />
       <Route path={`${match.path}/:collectionId`} component={CollectionPage} />
     </div>

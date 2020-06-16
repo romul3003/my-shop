@@ -2,6 +2,7 @@ import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
+import { checkUserSession } from './redux/user/userActions'
 import Header from './components/Header/Header'
 import HomePage from './pages/Homepage/Homepage'
 import ShopPage from './pages/ShopPage/ShopPage'
@@ -14,20 +15,8 @@ class App extends React.Component {
   unsubscribeFromAuth = null
 
   componentDidMount() {
-    // this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
-    //   if (userAuth) {
-    //     const userRef = await createUserProfileDocument(userAuth)
-    //
-    //     userRef.onSnapshot((snapshot) => {
-    //       setCurrentUser({
-    //         id: snapshot.id,
-    //         ...snapshot.data(),
-    //       })
-    //     })
-    //   } else {
-    //     setCurrentUser(userAuth)
-    //   }
-    // })
+    const { checkUserSession } = this.props
+    checkUserSession()
   }
 
   componentWillUnmount() {
@@ -63,4 +52,8 @@ const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
 })
 
-export default connect(mapStateToProps)(App)
+const mapDispatchToProps = (dispatch) => ({
+  checkUserSession: () => dispatch(checkUserSession()),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

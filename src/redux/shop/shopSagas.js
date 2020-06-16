@@ -18,6 +18,7 @@ export function* fetchCollectionsAsync() {
     const snapshot = yield collectionRef.get()
     // call - calls function convertCollectionsSnapshotToMap with an argument snapshot
     const collectionsMap = yield call(convertCollectionsSnapshotToMap, snapshot)
+    // saga way of dispatching new actions
     yield put(fetchCollectionSuccess(collectionsMap))
   } catch (error) {
     yield put(fetchCollectionSuccessFailure(error.message))
@@ -25,6 +26,8 @@ export function* fetchCollectionsAsync() {
 }
 
 export function* fetchCollectionsStart() {
+  // takeLatest catches action
+  // takes an action from the regular redux flow
   yield takeLatest(
     ShopActionTypes.FETCH_COLLECTIONS_START,
     fetchCollectionsAsync

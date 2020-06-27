@@ -28,6 +28,7 @@ app.listen(port, (error) => {
   console.log('Server running on port ' + port)
 })
 
+// routes for stripe
 app.post('/payment', (req, res) => {
   const body = {
     source: req.body.token.id,

@@ -2,14 +2,18 @@
 
 # dependencies
 /node_modules
+/client/node_modules
+
 /.pnp
 .pnp.js
 
 # testing
 /coverage
 
+
 # production
 /build
+/client/build
 
 # misc
 .DS_Store
@@ -22,8 +26,12 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-.idea
+# dotenv environment variables file
+.env
+.env.test
 
 #Firebase cache
 .firebase/
 firebase-debug.log
+
+.env

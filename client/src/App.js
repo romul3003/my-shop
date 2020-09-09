@@ -5,14 +5,14 @@ import { createStructuredSelector } from 'reselect'
 
 import { checkUserSession } from './redux/user/userActions'
 import { selectCurrentUser } from './redux/user/userSelectors'
-
 import Header from './components/Header/Header'
+
+import { GlobalStyle } from './globalStyles'
+
 import HomePage from './pages/Homepage/Homepage'
 import ShopPage from './pages/ShopPage/ShopPage'
 import CheckoutPage from './pages/Checkout/Checkout'
 import SignInAndSignUp from './pages/SignInAndSignUp/SignInAndSignUp'
-
-import './App.css'
 
 const App = ({ checkUserSession, currentUser }) => {
   useEffect(() => {
@@ -21,6 +21,7 @@ const App = ({ checkUserSession, currentUser }) => {
 
   return (
     <div>
+      <GlobalStyle />
       <Header />
       <Switch>
         <Route path="/shop" component={ShopPage} />

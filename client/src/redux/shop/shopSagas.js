@@ -5,10 +5,7 @@ import {
   firestore,
 } from '../../firebase/firebase.utils'
 
-import {
-  fetchCollectionSuccess,
-  fetchCollectionSuccessFailure,
-} from './shopActions'
+import { fetchCollectionSuccess, fetchCollectionFailure } from './shopActions'
 
 import ShopActionTypes from './shopTypes'
 
@@ -21,7 +18,7 @@ export function* fetchCollectionsAsync() {
     // saga way of dispatching new actions
     yield put(fetchCollectionSuccess(collectionsMap))
   } catch (error) {
-    yield put(fetchCollectionSuccessFailure(error.message))
+    yield put(fetchCollectionFailure(error.message))
   }
 }
 

@@ -15,7 +15,7 @@ export function* fetchCollectionsAsync() {
     const snapshot = yield collectionRef.get()
     // call - calls function convertCollectionsSnapshotToMap with an argument snapshot
     const collectionsMap = yield call(convertCollectionsSnapshotToMap, snapshot)
-    // saga way of dispatching new actions
+    // sagas way to dispatch new actions
     yield put(fetchCollectionSuccess(collectionsMap))
   } catch (error) {
     yield put(fetchCollectionFailure(error.message))
